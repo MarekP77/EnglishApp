@@ -2,7 +2,6 @@ package application;
 	
 import java.util.Optional;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -45,7 +44,7 @@ public class Aplikace extends Application {
         border.setBottom(nastavLabel());
         border.setRight(body());
         border.setPadding(new Insets(10,20,20,10));
-        Scene scene = new Scene(border, 1000,480);
+        Scene scene = new Scene(border, 830,480);
 
         primaryStage.setTitle("Výuka Angliètiny pro Dìti"); 
         primaryStage.setScene(scene); 
@@ -81,7 +80,7 @@ public class Aplikace extends Application {
             if (result.get() == ButtonType.OK){
                 hadej.fire();
             } else {
-                nazev.setText("Klikni na tlaèítko hádej");
+                nazev.setText("Klikni na tlaèítko hádej.");
             }
         }
         
@@ -89,18 +88,186 @@ public class Aplikace extends Application {
             spatneBody++; 
             spatne.setText(" Špatné Odpovìdi: "+ spatneBody);
             Alert alert = new Alert(AlertType.CONFIRMATION);
-            alert.setHeaderText("Špatná odpovìï");
-            alert.setContentText("Zkus to znovu");
+            alert.setHeaderText("Špatná odpovìï.");
+            alert.setContentText("Zkus to znovu.");
             alert.showAndWait();
         }}
         });
         
-        sloupec.getChildren().addAll(micTlacitko);
-
+      //Tlaèítko pták
+        Image ptak = new Image(getClass().getResourceAsStream("/zdroje/bird.jpg"),200 , 200, false, false);
+        Button ptakTlacitko = new Button("");
+        ptakTlacitko.setTooltip(new Tooltip("Pták"));
+        ptakTlacitko.setUserData("Bird");
+        ptakTlacitko.setGraphic(new ImageView(ptak));
         
- 
-        hlavniPanel.getChildren().addAll(sloupec, sloupec2, sloupec3); 
-
+        ptakTlacitko.setOnAction(new EventHandler<ActionEvent>() {
+        @Override public void handle(ActionEvent e) {
+        if (slovo == "ptak"){
+                     spravneBody++; 
+                     spravne.setText(" Správné Odpovìdi: "+ spravneBody);           
+         Alert alert = new Alert(AlertType.CONFIRMATION);
+         alert.setHeaderText("Správná odpovìï!");
+         alert.setContentText("Chceš hádat znovu?");
+            
+             Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                hadej.fire();
+            } else {
+                nazev.setText("Klikni na tlaèítko hádej.");
+            }
+        }
+        
+        else {
+            spatneBody++; 
+            spatne.setText(" Špatné Odpovìdi: "+ spatneBody);
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText("Špatná odpovìï.");
+            alert.setContentText("Zkus to znovu.");
+            alert.showAndWait();
+        }}
+        });
+        
+      //Tlaèítko auto
+        Image auto = new Image(getClass().getResourceAsStream("/zdroje/car.jpg"),200 , 200, false, false);
+        Button autoTlacitko = new Button("");
+        autoTlacitko.setTooltip(new Tooltip("Auto"));
+        autoTlacitko.setUserData("Car");
+        autoTlacitko.setGraphic(new ImageView(auto));
+        
+        autoTlacitko.setOnAction(new EventHandler<ActionEvent>() {
+        @Override public void handle(ActionEvent e) {
+        if (slovo == "auto"){
+                     spravneBody++; 
+                     spravne.setText(" Správné Odpovìdi: "+ spravneBody);           
+         Alert alert = new Alert(AlertType.CONFIRMATION);
+         alert.setHeaderText("Správná odpovìï!");
+         alert.setContentText("Chceš hádat znovu?");
+            
+             Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                hadej.fire();
+            } else {
+                nazev.setText("Klikni na tlaèítko hádej.");
+            }
+        }
+        
+        else {
+            spatneBody++; 
+            spatne.setText(" Špatné Odpovìdi: "+ spatneBody);
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText("Špatná odpovìï.");
+            alert.setContentText("Zkus to znovu.");
+            alert.showAndWait();
+        }}
+        });
+        
+      //Tlaèítko koèka
+        Image kocka = new Image(getClass().getResourceAsStream("/zdroje/cat.jpg"),200 , 200, false, false);
+        Button kockaTlacitko = new Button("");
+        kockaTlacitko.setTooltip(new Tooltip("Koèka"));
+        kockaTlacitko.setUserData("Cat");
+        kockaTlacitko.setGraphic(new ImageView(kocka));
+        
+        kockaTlacitko.setOnAction(new EventHandler<ActionEvent>() {
+        @Override public void handle(ActionEvent e) {
+        if (slovo == "kocka"){
+                     spravneBody++; 
+                     spravne.setText(" Správné Odpovìdi: "+ spravneBody);           
+         Alert alert = new Alert(AlertType.CONFIRMATION);
+         alert.setHeaderText("Správná odpovìï!");
+         alert.setContentText("Chceš hádat znovu?");
+            
+             Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                hadej.fire();
+            } else {
+                nazev.setText("Klikni na tlaèítko hádej.");
+            }
+        }
+        
+        else {
+            spatneBody++; 
+            spatne.setText(" Špatné Odpovìdi: "+ spatneBody);
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText("Špatná odpovìï.");
+            alert.setContentText("Zkus to znovu.");
+            alert.showAndWait();
+        }}
+        });
+        
+      //Tlaèítko hrnek
+        Image hrnek = new Image(getClass().getResourceAsStream("/zdroje/cup.jpg"),200 , 200, false, false);
+        Button hrnekTlacitko = new Button("");
+        hrnekTlacitko.setTooltip(new Tooltip("Hrnek"));
+        hrnekTlacitko.setUserData("Cup");
+        hrnekTlacitko.setGraphic(new ImageView(hrnek));
+        
+        hrnekTlacitko.setOnAction(new EventHandler<ActionEvent>() {
+        @Override public void handle(ActionEvent e) {
+        if (slovo == "hrnek"){
+                     spravneBody++; 
+                     spravne.setText(" Správné Odpovìdi: "+ spravneBody);           
+         Alert alert = new Alert(AlertType.CONFIRMATION);
+         alert.setHeaderText("Správná odpovìï!");
+         alert.setContentText("Chceš hádat znovu?");
+            
+             Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                hadej.fire();
+            } else {
+                nazev.setText("Klikni na tlaèítko hádej.");
+            }
+        }
+        
+        else {
+            spatneBody++; 
+            spatne.setText(" Špatné Odpovìdi: "+ spatneBody);
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText("Špatná odpovìï.");
+            alert.setContentText("Zkus to znovu.");
+            alert.showAndWait();
+        }}
+        });
+        
+      //Tlaèítko telefon
+        Image telefon = new Image(getClass().getResourceAsStream("/zdroje/phone.jpg"),200 , 200, false, false);
+        Button telefonTlacitko = new Button("");
+        telefonTlacitko.setTooltip(new Tooltip("Telefon"));
+        telefonTlacitko.setUserData("Phone");
+        telefonTlacitko.setGraphic(new ImageView(telefon));
+        
+        telefonTlacitko.setOnAction(new EventHandler<ActionEvent>() {
+        @Override public void handle(ActionEvent e) {
+        if (slovo == "telefon"){
+                     spravneBody++; 
+                     spravne.setText(" Správné Odpovìdi: "+ spravneBody);           
+         Alert alert = new Alert(AlertType.CONFIRMATION);
+         alert.setHeaderText("Správná odpovìï!");
+         alert.setContentText("Chceš hádat znovu?");
+            
+             Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                hadej.fire();
+            } else {
+                nazev.setText("Klikni na tlaèítko hádej.");
+            }
+        }
+        
+        else {
+            spatneBody++; 
+            spatne.setText(" Špatné Odpovìdi: "+ spatneBody);
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText("Špatná odpovìï.");
+            alert.setContentText("Zkus to znovu.");
+            alert.showAndWait();
+        }}
+        });
+        
+      sloupec.getChildren().addAll(micTlacitko, ptakTlacitko);
+      sloupec2.getChildren().addAll(autoTlacitko, kockaTlacitko);
+      sloupec3.getChildren().addAll(hrnekTlacitko, telefonTlacitko);
+      hlavniPanel.getChildren().addAll(sloupec, sloupec2, sloupec3); 
 
         return hlavniPanel;
 		}
@@ -110,7 +277,7 @@ public class Aplikace extends Application {
 
          hadej.setText("Hádej");
 
-         nazev.setText("Klikni na tlaèítko hádej pro zahájení hry");
+         nazev.setText("   Klikni na tlaèítko hádej pro zahájení hry.");
          
          hadej.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -121,32 +288,32 @@ public class Aplikace extends Application {
         volba = random.nextInt(6)+1;
        if (volba == 1){
            slovo = "mic";
-           nazev.setText("Ball");
+           nazev.setText("  Ball");
        }
        
        if (volba == 2){
            slovo = "ptak";
-           nazev.setText("Bird");
+           nazev.setText("  Bird");
        }
        
        if (volba == 3){
            slovo = "auto";
-           nazev.setText("Car");
+           nazev.setText("  Car");
        }
        
        if (volba == 4){
            slovo = "kocka";
-           nazev.setText("Cat");
+           nazev.setText("  Cat");
        }
        
        if (volba == 5){
            slovo = "hrnek";
-           nazev.setText("Cup");
+           nazev.setText("  Cup");
        }
        
        if (volba == 6){
            slovo = "telefon";
-           nazev.setText("Phone");
+           nazev.setText("  Phone");
        }
      }
    });
@@ -169,7 +336,7 @@ public class Aplikace extends Application {
        launch(args);
    }
 	
-	}
+}
         
         
 	
